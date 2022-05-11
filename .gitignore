@@ -1,52 +1,13 @@
-# Prerequisites
-*.d
-
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
-
-# Linker output
-*.ilk
-*.map
-*.exp
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
-
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
-
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
-
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+void harceleur(t_ligne releve[1000])///fonction permettant de determiner le nb d'appel entrant et sortant de l'harceleur Oscar RIOTTO
+{
+    tripermutation(releve);
+    int cpte=0, cpts=0;
+    for(int i=0;i<1000;i++)///Si le nom correspondant a la structure est RIOTTO on compte on incremente soit le cpt de sortant soit entrant
+    {
+        if (strcmp(releve[i].nom,"RIOTTO") == 0){
+            if (strcmp(releve[i].typeappel,"Entrant") == 0)
+                cpte++;
+            else
+                cpts++;
+        }
+    }
