@@ -1,0 +1,80 @@
+///     Sanji   ///
+
+    BITMAP *groupe_animes_sanji_droite, *groupe_animes_sanji_gauche, *tabSpriteSanjiDroite[8], *tabSpriteSanjiGauche[8];
+    BITMAP *groupe_animes_sanji_bas, *groupe_animes_sanji_haut, *tabSpriteSanjiHaut[8], *tabSpriteSanjiBas[8];
+    BITMAP *groupe_animes_sanji_stand, *tabSpriteSanjiStand[4];
+
+    groupe_animes_sanji_droite = load_bitmap("Sanjidroite.bmp", NULL);
+    groupe_animes_sanji_gauche = load_bitmap("Sanjigauche.bmp", NULL);
+    groupe_animes_sanji_haut = load_bitmap("Sanjihaut.bmp", NULL);
+    groupe_animes_sanji_bas = load_bitmap("Sanjibas.bmp", NULL);
+    groupe_animes_sanji_stand = load_bitmap("Sanjistand.bmp", NULL);
+
+    for(i=0;i<8;i++){
+        tabSpriteSanjiDroite[i] = recup_sprites(groupe_animes_sanji_droite,36,32,joueur1.x,joueur1.y,8,i);
+        tabSpriteSanjiGauche[i] = recup_sprites(groupe_animes_sanji_gauche,36,32,joueur1.x,joueur1.y,8,i);
+        tabSpriteSanjiHaut[i] = recup_sprites(groupe_animes_sanji_haut,32,36,joueur1.x,joueur1.y,1,i);
+        tabSpriteSanjiBas[i] = recup_sprites(groupe_animes_sanji_bas,32,36,joueur1.x,joueur1.y,1,i);
+    }
+    for(i=0;i<4;i++){
+        tabSpriteSanjiStand[i] = recup_sprites(groupe_animes_sanji_stand,20,32,joueur1.x,joueur1.y,4,i);
+    }
+
+    //Sanji Stand
+        do{
+        for(i=0;i<4;i++){
+        draw_sprite(screen, tabSpriteSanjiStand[i],joueur1.x, joueur1.y);
+        rest(500);
+        rectfill(screen,joueur1.x,joueur1.y,joueur1.x+joueur1.tx,joueur1.y+joueur1.ty,makecol(0,0,0));
+        n++;
+
+}
+    }while(n<100);
+
+    //déplacement à droite
+    
+    do{
+        for(i=0;i<8;i++){
+        joueur1.x = joueur1.x+dx;
+        draw_sprite(screen, tabSpriteSanjiDroite[i],joueur1.x, joueur1.y);
+        rest(100);
+        rectfill(screen,joueur1.x,joueur1.y,joueur1.x+joueur1.tx,joueur1.y+joueur1.ty,makecol(0,0,0));
+        n++;
+
+}
+    }while(n<100);
+    //déplacement à gauche
+    do{
+        for(i=0;i<8;i++){
+        joueur1.x = joueur1.x-dx;
+        draw_sprite(screen, tabSpriteSanjiGauche[i],joueur1.x, joueur1.y);
+        rest(100);
+        rectfill(screen,joueur1.x,joueur1.y,joueur1.x+joueur1.tx,joueur1.y+joueur1.ty,makecol(0,0,0));
+        n++;
+
+}
+    }while(n<150);
+
+    //déplacement en bas
+    do{
+        for(i=0;i<8;i++){
+        joueur1.y = joueur1.y+dy;
+        draw_sprite(screen, tabSpriteSanjiBas[i],joueur1.x, joueur1.y);
+        rest(100);
+        rectfill(screen,joueur1.x,joueur1.y,joueur1.x+joueur1.tx,joueur1.y+joueur1.ty,makecol(0,0,0));
+        n++;
+
+}
+    }while(n<250);
+    
+    //Déplacement en haut
+    do{
+        for(i=0;i<8;i++){
+        joueur1.y = joueur1.y-dy;
+        draw_sprite(screen, tabSpriteSanjiHaut[i],joueur1.x, joueur1.y);
+        rest(100);
+        rectfill(screen,joueur1.x,joueur1.y,joueur1.x+joueur1.tx,joueur1.y+joueur1.ty,makecol(0,0,0));
+        n++;
+
+}
+    }while(n<300);
